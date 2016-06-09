@@ -82,7 +82,14 @@
 		ycoord = event.touches[0].pageY;
 		coords.innerHTML = 'x: ' + xcoord + ', y: ' + ycoord;
 
-        //TODO: create a jquery? $.post (/touche) https://api.jquery.com/jquery.post/
+        //TODO: create a jquery? $.post (/touches) https://api.jquery.com/jquery.post/
+        $.post("/touches", {
+            participant: 1,
+            painting: 1,
+            touch: 1,
+            x_coord: xcoord,
+            y_coord: ycoord
+        })
 
 	}
 
@@ -110,7 +117,7 @@
 
 <body onload="init()">
     <canvas id="mycanvas" width="1003" height="731" style="background-image: url('img/schilderij1.jpg')" >
-          Canvas element not supported.
+          // Canvas element not supported.
     </canvas>
 
 	<div id="coords"></div>

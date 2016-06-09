@@ -3,13 +3,20 @@ var Runs = require('../models/run')
 var router = express.Router();
 
 router.post('/', function(req, res, next) {
-    // TODO: read the post and set variables for databse save
-    var r = new Runs ({
-      	painting: 1,
-        touch: 1,
-        x_coord: 123,
-        y_coord: 123
+    // read the post and set variables for databse save:
+    var r = new Runs({
+        painting: req.body.painting,
+        touch: req.body.touch,
+        x_coord: req.body.x_coord,
+        y_coord: req.body.y_coord
     });
+
+    //var r = new Runs ({
+    //  	painting: 1,
+    //    touch: 1,
+    //    x_coord: 123,
+    //    y_coord: 123
+    //});
 
     r.save()
     .then(function(doc) {
