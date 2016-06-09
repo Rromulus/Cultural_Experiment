@@ -75,28 +75,27 @@ app.use('/users', users);
 module.exports = app;
 
 /* Database connection. */
-db = mongoose.createConnection('mongodb://127.0.0.1:27017/mydb');
+// db = mongoose.createConnection('mongodb://127.0.0.1:27017/mydb');
 
 //to check the connection
 //var db = mongoose.connection
 //db.on('error', console.error.bind(console, 'connection error:'));
 //db.once('open', function(){
 	//we're connected!
-//}); 
+//});
 
 //load models:
 //fs.readdirSync(__dirname + '/models').forEach(function(filename){
 //	if (~filename.indexOf('.js')) require(__dirname + '/models/' + filename)
 //})
 
-var Schema = mongoose.Schema; 
+var Schema = mongoose.Schema;
 
 var runSchema = new Schema({
-	painting: Number, 
-	touch: Number, 
-	x_coord: Number, 
+	painting: Number,
+	touch: Number,
+	x_coord: Number,
 	y_coord: Number
 });
 
 var Runs = mongoose.model('run', runSchema);
-
