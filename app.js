@@ -90,13 +90,3 @@ fs.readdirSync(__dirname + '/models').forEach(function(filename){
 	if (~filename.indexOf('.js')) require(__dirname + '/models/' + filename)
 })
 
-// var Schema = mongoose.Schema;
-//
-// var runSchema = new Schema({
-// 	painting: Number,
-// 	touch: Number,
-// 	x_coord: Number,
-// 	y_coord: Number
-// });
-//
-// var Runs = mongoose.model('run', runSchema);
