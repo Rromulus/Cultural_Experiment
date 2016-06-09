@@ -9,7 +9,7 @@ var fs = require('fs');
 
 var routes = require('./routes/index');
 var users = require('./routes/users');
-
+var touches = require('./routes/touches');
 var app = express();
 
 
@@ -38,6 +38,7 @@ app.use(express.static(path.join(__dirname, 'public')));
 app.use('/', express.static(path.resolve(__dirname,  'public/html/')));
 
 app.use('/', routes);
+app.use('/touches', touches);
 app.use('/users', users);
 
 // catch 404 and forward to error handler
@@ -75,7 +76,7 @@ app.use('/users', users);
 module.exports = app;
 
 /* Database connection. */
-// db = mongoose.createConnection('mongodb://127.0.0.1:27017/mydb');
+db = mongoose.createConnection('mongodb://127.0.0.1:27017/mydb');
 
 //to check the connection
 //var db = mongoose.connection
@@ -85,17 +86,17 @@ module.exports = app;
 //});
 
 //load models:
-//fs.readdirSync(__dirname + '/models').forEach(function(filename){
-//	if (~filename.indexOf('.js')) require(__dirname + '/models/' + filename)
-//})
+fs.readdirSync(__dirname + '/models').forEach(function(filename){
+	if (~filename.indexOf('.js')) require(__dirname + '/models/' + filename)
+})
 
-var Schema = mongoose.Schema;
-
-var runSchema = new Schema({
-	painting: Number,
-	touch: Number,
-	x_coord: Number,
-	y_coord: Number
-});
-
-var Runs = mongoose.model('run', runSchema);
+// var Schema = mongoose.Schema;
+//
+// var runSchema = new Schema({
+// 	painting: Number,
+// 	touch: Number,
+// 	x_coord: Number,
+// 	y_coord: Number
+// });
+//
+// var Runs = mongoose.model('run', runSchema);

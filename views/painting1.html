@@ -3,12 +3,12 @@
 <title>Sketchpad</title>
 
 <script type="text/javascript">
-    setTimeout(function(){window.location.href='painting2'},20000);//value set on 20 seconds = 20000 milliseconds
-	
+    // setTimeout(function(){window.location.href='painting2'},20000);//value set on 20 seconds = 20000 milliseconds
+
 	// Variables for referencing the canvas and 2dcanvas context
     var canvas,ctx;
 
-    // Variables to keep track of the mouse position and left-button status 
+    // Variables to keep track of the mouse position and left-button status
     var mouseX,mouseY,mouseDown=0;
 
     // Draws a dot at a specific position on the supplied canvas name
@@ -22,10 +22,10 @@
 
         // Draw a filled circle
         ctx.beginPath();
-        ctx.arc(x, y, size, 0, Math.PI*2, true); 
+        ctx.arc(x, y, size, 0, Math.PI*2, true);
         ctx.closePath();
         ctx.fill();
-    } 
+    }
 
     // Clear the canvas context using the canvas width and height
     function clearCanvas(canvas,ctx) {
@@ -44,7 +44,7 @@
     }
 
     // Keep track of the mouse position and draw a dot if mouse button is currently pressed
-    function sketchpad_mouseMove(e) { 
+    function sketchpad_mouseMove(e) {
         // Update the mouse co-ordinates when moved
         getMousePos(e);
 
@@ -68,7 +68,7 @@
             mouseY = e.layerY;
         }
      }
-	 
+
 	 function touchHandler(event) {
 		// Get a reference to our coordinates div
 		var coords = document.getElementById("coords");
@@ -77,13 +77,14 @@
 		ycoord = event.touches[0].pageY;
 		coords.innerHTML = 'x: ' + xcoord + ', y: ' + ycoord;
 
-		var r = new Runs ({
-      	painting: 1, 
-		touch: 1, 
-		x_coord: xcoord, 
-		y_coord: ycoord
-    	});
-		r.save(function (err) {if (err) console.log ('Error on save!')});
+
+		// var r = new Runs ({
+     //  	painting: 1,
+		// touch: 1,
+		// x_coord: xcoord,
+		// y_coord: ycoord
+    	// });
+		// r.save(function (err) {if (err) console.log ('Error on save!')});
 	}
 
 
