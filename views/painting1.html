@@ -3,8 +3,7 @@
 <title>Sketchpad</title>
 
 <script type="text/javascript">
-    // time
-	//setTimeout(function(){window.location.href='painting2.html'},20000); //value set on 20 seconds = 20000 milliseconds
+    setTimeout(function(){window.location.href='painting2'},20000);//value set on 20 seconds = 20000 milliseconds
 	
 	// Variables for referencing the canvas and 2dcanvas context
     var canvas,ctx;
@@ -77,7 +76,14 @@
 		xcoord = event.touches[0].pageX;
 		ycoord = event.touches[0].pageY;
 		coords.innerHTML = 'x: ' + xcoord + ', y: ' + ycoord;
-		
+
+		var r = new Runs ({
+      	painting: 1, 
+		touch: 1, 
+		x_coord: xcoord, 
+		y_coord: ycoord
+    	});
+		r.save(function (err) {if (err) console.log ('Error on save!')});
 	}
 
 

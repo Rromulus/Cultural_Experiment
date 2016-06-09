@@ -1,14 +1,17 @@
 var express = require('express');
 var path = require('path');
-var favicon = require('serve-favicon');
+//var favicon = require('serve-favicon');
 var logger = require('morgan');
 var cookieParser = require('cookie-parser');
 var bodyParser = require('body-parser');
+var mongoose = require('mongoose');
+var fs = require('fs');
 
 var routes = require('./routes/index');
 var users = require('./routes/users');
 
 var app = express();
+
 
 app.listen(3000, function(){
 	console.log('listening on 3000')
@@ -32,6 +35,7 @@ app.use(bodyParser.json());
 app.use(bodyParser.urlencoded({ extended: false }));
 app.use(cookieParser());
 app.use(express.static(path.join(__dirname, 'public')));
+app.use('/', express.static(path.resolve(__dirname,  'public/html/')));
 
 app.use('/', routes);
 app.use('/users', users);
@@ -69,3 +73,30 @@ app.use('/users', users);
 
 
 module.exports = app;
+
+/* Database connection. */
+db = mongoose.createConnection('mongodb://127.0.0.1:27017/mydb');
+
+//to check the connection
+//var db = mongoose.connection
+//db.on('error', console.error.bind(console, 'connection error:'));
+//db.once('open', function(){
+	//we're connected!
+//}); 
+
+//load models:
+//fs.readdirSync(__dirname + '/models').forEach(function(filename){
+//	if (~filename.indexOf('.js')) require(__dirname + '/models/' + filename)
+//})
+
+var Schema = mongoose.Schema; 
+
+var runSchema = new Schema({
+	painting: Number, 
+	touch: Number, 
+	x_coord: Number, 
+	y_coord: Number
+});
+
+var Runs = mongoose.model('run', runSchema);
+

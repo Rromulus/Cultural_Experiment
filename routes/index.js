@@ -6,6 +6,15 @@ router.get('/', function(req, res, next) {
   res.render('painting1', { title: 'ejs' });
 });
 
+router.get('/painting2', function(req, res, next) {
+  res.render('painting2', { title: 'ejs' });
+});
 
+router.get('/end', function(req, res, next) {
+  res.render('end', { title: 'ejs' });
+});
 
 module.exports = router;
+
+
+
