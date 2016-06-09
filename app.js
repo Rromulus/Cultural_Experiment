@@ -76,7 +76,7 @@ app.use('/users', users);
 module.exports = app;
 
 /* Database connection. */
-db = mongoose.createConnection('mongodb://127.0.0.1:27017/mydb');
+db = mongoose.connect('mongodb://127.0.0.1:27017/mydb');
 
 //to check the connection
 //var db = mongoose.connection

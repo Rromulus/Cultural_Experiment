@@ -1,9 +1,14 @@
 <html>
 <head>
-<title>Sketchpad</title>
-
+    <title>Sketchpad</title>
+    <link href="css/style.css" rel="stylesheet">
 <script type="text/javascript">
-    // setTimeout(function(){window.location.href='painting2'},20000);//value set on 20 seconds = 20000 milliseconds
+    setTimeout(function(){
+        window.location.href='painting2'
+    }, 40000000000);//value set on 20 seconds = 20000 milliseconds
+
+    // var background = "background-image: url('" + url + counter
+    //TODO: replace image e.g. $('canvas').attr('style', background)
 
 	// Variables for referencing the canvas and 2dcanvas context
     var canvas,ctx;
@@ -77,14 +82,8 @@
 		ycoord = event.touches[0].pageY;
 		coords.innerHTML = 'x: ' + xcoord + ', y: ' + ycoord;
 
+        //TODO: create a jquery? $.post (/touche) https://api.jquery.com/jquery.post/
 
-		// var r = new Runs ({
-     //  	painting: 1,
-		// touch: 1,
-		// x_coord: xcoord,
-		// y_coord: ycoord
-    	// });
-		// r.save(function (err) {if (err) console.log ('Error on save!')});
 	}
 
 
@@ -110,10 +109,10 @@
 </head>
 
 <body onload="init()">
-    <canvas id="mycanvas" width="1003" height="731" style="background-image: url('images/schilderij1.jpg')" >
-      Canvas element not supported.
+    <canvas id="mycanvas" width="1003" height="731" style="background-image: url('img/schilderij1.jpg')" >
+          Canvas element not supported.
     </canvas>
-	</img>
+
 	<div id="coords"></div>
 </body>
 </html>
