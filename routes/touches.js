@@ -3,7 +3,6 @@ var Runs = require('../models/run')
 var router = express.Router();
 
 router.post('/', function(req, res, next) {
-    console.log(req);
     // read the post and set variables for databse save:
     var r = new Runs({
         painting: req.body.painting,
@@ -12,14 +11,14 @@ router.post('/', function(req, res, next) {
         y_coord: req.body.y_coord
     });
 
-    // r.save()
-    // .then(function(doc) {
-    //     console.log('saved')
-    //     res.send('saved!!')
-    // }, function(err) {
-    //     console.error(err)
-    //     res.send(err.message);
-    // });
+    r.save()
+    .then(function(doc) {
+        console.log('saved');
+        res.send('saved');
+    }, function(err) {
+        console.error(err);
+        res.send(err.message);
+    });
 });
 
 router.get('/', function(req, res, next) {
