@@ -1,6 +1,6 @@
  //play sound
-  var player = require('play-sound')(opts = {});
-  player.play('public/sound/foo.mp3', function(err){});
+  // var player = require('play-sound')(opts = {});
+  // player.play('public/sound/foo.mp3', function(err){});
 
     setTimeout(function(){
         window.location.href='painting2'
@@ -44,6 +44,7 @@
 
     // Keep track of the mouse button being released
     function sketchpad_mouseUp() {
+        console.log("up");
         mouseDown=0;
     }
 
@@ -74,6 +75,8 @@
      }
 
 	 function touchHandler(event) {
+        //TODO: make sure this function fires
+        console.log("trigger");
 		// Get a reference to our coordinates div
 		var coords = document.getElementById("coords");
 		// Write the coordinates of the touch to the div
@@ -81,15 +84,15 @@
 		ycoord = event.touches[0].pageY;
 		coords.innerHTML = 'x: ' + xcoord + ', y: ' + ycoord;
 
-        //TODO: create a jquery? $.post (/touches) https://api.jquery.com/jquery.post/
-        //$.post("/touches", {
-        //    participant: 1,
-        //    painting: 1,
-        //    touch: 1,
-        //    x_coord: xcoord,
-        //    y_coord: ycoord
-        //})
-
+        var touch = {
+           participant: 1,
+           painting: 1,
+           touch: 1,
+           x_coord: xcoord,
+           y_coord: ycoord
+        }
+        console.log(touch);
+        $.ajax({type: "POST", url: "/touches", data: touch});
 	}
 
 
@@ -110,6 +113,13 @@
             window.addEventListener('mouseup', sketchpad_mouseUp, false);
         }
 
-         
-
+        var touch = {
+           participant: 1,
+           painting: 1,
+           touch: 1,
+           x_coord: 3,
+           y_coord: 4
+        }
+        console.log(touch);
+        $.ajax({type: "POST", url: "/touches", data: touch});
     }
