@@ -36,6 +36,7 @@ function clearCanvas(canvas,ctx) {
 function sketchpad_mouseDown() {
     mouseDown=1;
     drawDot(ctx,mouseX,mouseY,40);  //change here the size of the dot
+
 }
 
 // Keep track of the mouse button being released
@@ -85,11 +86,19 @@ function getMousePos(e) {
        touch: 1,
        x_coord: xcoord,
        y_coord: ycoord
-    }
+    };
+    console.log(touch);
 
-    $.ajax({type: "POST", url: "/touches", data: touch});
+    $.ajax({type: 'POST',  
+            data: JSON.stringify(touch),
+            contentType: 'application/json',
+            url: 'http://localhost:3000/touches',
+            succes: function(touch) {
+                console.log('succes');
+            }
+        });
+    
 }
-
 
 // Set-up the canvas and add our event handlers after the page has loaded
 function init() {
@@ -108,5 +117,6 @@ function init() {
         window.addEventListener('mouseup', sketchpad_mouseUp, false);
     }
 
+    //play sound at the beginning
     new Audio('sound/beep-07.mp3').play()
 }
