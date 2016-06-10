@@ -9,7 +9,7 @@ var fs = require('fs');
 
 var routes = require('./routes/index');
 var users = require('./routes/users');
-var touches = require('./routes/touches');
+var touches = require('./routes/touches'); // import touch api
 var app = express();
 
 
@@ -38,7 +38,7 @@ app.use(express.static(path.join(__dirname, 'public')));
 app.use('/', express.static(path.resolve(__dirname,  'public/html/')));
 
 app.use('/', routes);
-app.use('/touches', touches);
+app.use('/touches', touches); // set touch api at location /touches
 app.use('/users', users);
 
 // catch 404 and forward to error handler
@@ -89,4 +89,3 @@ db = mongoose.connect('mongodb://127.0.0.1:27017/mydb');
 fs.readdirSync(__dirname + '/models').forEach(function(filename){
 	if (~filename.indexOf('.js')) require(__dirname + '/models/' + filename)
 })
-
