@@ -4,7 +4,7 @@ setTimeout(function(){
 
 // var background = "background-image: url('" + url + counter
 //TODO: replace image e.g. $('canvas').attr('style', background)
-
+var eventFire = false;
 // Variables for referencing the canvas and 2dcanvas context
 var canvas,ctx;
 
@@ -70,34 +70,43 @@ function getMousePos(e) {
     }
  }
 
- function touchHandler(event) {
+ function touchHandler(event, xcoord, ycoord) {
     //TODO: make sure this function is triggered
     console.log("trigger");
 	// Get a reference to our coordinates div
 	var coords = document.getElementById("coords");
 	// Write the coordinates of the touch to the div
-	xcoord = event.touches[0].pageX;
-	ycoord = event.touches[0].pageY;
+	var xcoord = event.touches[0].pageX;
+	var ycoord = event.touches[0].pageY;
 	coords.innerHTML = 'x: ' + xcoord + ', y: ' + ycoord;
 
-    var touch = {
-       participant: 1,
-       painting: 1,
-       touch: 1,
-       x_coord: xcoord,
-       y_coord: ycoord
-    };
-    console.log(touch);
+    var eventFire = true;
+    sendTouch(eventFire, xcoord, ycoord);
+}
 
-    $.ajax({type: 'POST',  
-            data: JSON.stringify(touch),
-            contentType: 'application/json',
-            url: 'http://localhost:3000/touches',
-            succes: function(touch) {
-                console.log('succes');
-            }
+function sendTouch(eventFire, xcoord, ycoord){
+    if(eventFire==true){
+        //console.log('hier')
+        var touch = {
+            participant: 1,
+            painting: 1,
+            touch: 1,
+            x_coord: xcoord,
+            y_coord: ycoord
+        };
+        //console.log(touch);
+        
+        
+        $.ajax({type: 'POST',  
+                data: JSON.stringify(touch),
+                contentType: 'application/json',
+                url: 'http://localhost:3000/touches',
+                succes: function(touch) {
+                    console.log('succes');
+                }
         });
-    
+    eventFire = false;
+    }
 }
 
 // Set-up the canvas and add our event handlers after the page has loaded
@@ -119,4 +128,5 @@ function init() {
 
     //play sound at the beginning
     new Audio('sound/beep-07.mp3').play()
+        
 }
