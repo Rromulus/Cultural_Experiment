@@ -95,7 +95,7 @@ function sendTouch(eventFire, xcoord, ycoord){
         //time
         var timeStamp = performance.now(); 
         timeStamp = timeStamp/1000 //change millisecond into second
-        timeStamp = timeStamp.toFixed(3); //round till 3 numbers behind the comma
+        timeStamp = timeStamp.toFixed(3); //till 3 numbers behind the comma
 
         //painting
         page = location.pathname; 
@@ -112,26 +112,40 @@ function sendTouch(eventFire, xcoord, ycoord){
         }
         else if (page == "/painting3"){
             var paintingNumber = 3;
+            var width = 1050;
+            var height = 814;
         }
         else if (page == "/painting4"){
             var paintingNumber = 4;
+            var width = 1050;
+            var height = 814;
         }
         else if (page == "/painting5"){
             var paintingNumber = 5;
+            var width = 1050;
+            var height = 814;
         }
         else if (page == "/painting6"){
             var paintingNumber = 6;
+            var width = 1050;
+            var height = 814;
         }
         else if (page == "/painting7"){
             var paintingNumber = 7;
+            var width = 1050;
+            var height = 814;
         }
         else {
             var paintingNumber = 8;
+            var width = 1050;
+            var height = 814;
         }
 
         //percentage calculation based on size painting: 
         xcoord = (xcoord * 100) / width; 
+        xcoord = xcoord.toFixed(3); //till 3 numbers behind the comma
         ycoord = (ycoord * 100) / height; 
+        ycoord = ycoord.toFixed(3); //till 3 numbers behind the comma
 
         var touch = {
             test: 1, //test = 1 means this is test data, 0 = real data
