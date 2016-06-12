@@ -88,14 +88,45 @@ function sendTouch(eventFire, xcoord, ycoord){
         var participantID = localStorage.getItem("id");
         participantID = Number(participantID);
         //console.log(participantID)
+
+        //time
         var timeStamp = performance.now(); 
         timeStamp = timeStamp/1000 //change millisecond into second
         timeStamp = timeStamp.toFixed(3); //round till 3 numbers behind the comma
 
+        //painting
+        page = location.pathname; 
+        //console.log(page);
+        if (page == "/painting1") {
+            var paintingNumber = 1;
+        }
+        else if (page == "/painting2"){
+            var paintingNumber = 2;
+        }
+        else if (page == "/painting3"){
+            var paintingNumber = 3;
+        }
+        else if (page == "/painting4"){
+            var paintingNumber = 4;
+        }
+        else if (page == "/painting5"){
+            var paintingNumber = 5;
+        }
+        else if (page == "/painting6"){
+            var paintingNumber = 6;
+        }
+        else if (page == "/painting7"){
+            var paintingNumber = 7;
+        }
+        else {
+            var paintingNumber = 8;
+        }
+
+
         var touch = {
             test: 1, //test = 1 means this is test data, 0 = real data
             participant: participantID,
-            painting: 1,
+            painting: paintingNumber,
             touch: 1,
             time: timeStamp,
             x_coord: xcoord,
