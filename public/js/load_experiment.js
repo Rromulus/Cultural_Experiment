@@ -71,13 +71,13 @@ function getMousePos(e) {
  }
 
  function touchHandler(event, xcoord, ycoord) {
-    console.log("trigger");
+    //console.log("trigger");
     // Get a reference to our coordinates div
-    var coords = document.getElementById("coords");
+    //var coords = document.getElementById("coords"); //uncomment for displaying coordinates
     // Write the coordinates of the touch to the div
     var xcoord = event.touches[0].pageX;
     var ycoord = event.touches[0].pageY;
-    coords.innerHTML = 'x: ' + xcoord + ', y: ' + ycoord;
+    //coords.innerHTML = 'x: ' + xcoord + ', y: ' + ycoord; //uncomment for displaying coordinates
 
     var eventFire = true;
     sendTouch(eventFire, xcoord, ycoord);
