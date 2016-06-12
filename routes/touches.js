@@ -36,11 +36,17 @@ router.get('/', function(req, res, next) {
      //   console.error(err)
       //  res.send(err.message)
     //})
-    Runs.count().exec().then(function(doc){
-        res.send(doc)
-        },function(err){
-            res.send(err.message)
-        })
+
+
+    Runs.find({}, function(err, docs) {
+      if ( err ) {
+        res.status(500).send(err);
+      }
+      res.status(200).json(docs);
+
+    });
+
+
 });
 
 module.exports = router;

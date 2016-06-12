@@ -36,7 +36,8 @@ function clearCanvas(canvas,ctx) {
 function sketchpad_mouseDown() {
     mouseDown=1;
     drawDot(ctx,mouseX,mouseY,40);  //change here the size of the dot
-
+    //post Touch
+    //sendTouch(true, event.screenX, event.screenY);
 }
 
 // Keep track of the mouse button being released
@@ -68,17 +69,18 @@ function getMousePos(e) {
         mouseX = e.layerX;
         mouseY = e.layerY;
     }
+
  }
 
  function touchHandler(event, xcoord, ycoord) {
     //TODO: make sure this function is triggered
     console.log("trigger");
-	// Get a reference to our coordinates div
-	var coords = document.getElementById("coords");
-	// Write the coordinates of the touch to the div
-	var xcoord = event.touches[0].pageX;
-	var ycoord = event.touches[0].pageY;
-	coords.innerHTML = 'x: ' + xcoord + ', y: ' + ycoord;
+    // Get a reference to our coordinates div
+    var coords = document.getElementById("coords");
+    // Write the coordinates of the touch to the div
+    var xcoord = event.touches[0].pageX;
+    var ycoord = event.touches[0].pageY;
+    coords.innerHTML = 'x: ' + xcoord + ', y: ' + ycoord;
 
     var eventFire = true;
     sendTouch(eventFire, xcoord, ycoord);
@@ -88,7 +90,7 @@ function sendTouch(eventFire, xcoord, ycoord){
     if(eventFire==true){
         //console.log('hier')
         var touch = {
-            participant: 1,
+            participant: 3,
             painting: 1,
             touch: 1,
             x_coord: xcoord,
