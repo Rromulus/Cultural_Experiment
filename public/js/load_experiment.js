@@ -99,9 +99,13 @@ function sendTouch(eventFire, xcoord, ycoord){
         //console.log(page);
         if (page == "/painting1") {
             var paintingNumber = 1;
+            var width = 1003;
+            var height = 731;
         }
         else if (page == "/painting2"){
             var paintingNumber = 2;
+            var width = 1050;
+            var height = 814;
         }
         else if (page == "/painting3"){
             var paintingNumber = 3;
@@ -121,6 +125,10 @@ function sendTouch(eventFire, xcoord, ycoord){
         else {
             var paintingNumber = 8;
         }
+
+        //percentage calculation based on size painting: 
+        xcoord = (xcoord * 100) / width; 
+        ycoord = (ycoord * 100) / height;
 
 
         var touch = {
