@@ -9,17 +9,18 @@
 </head>
 <body>
 
-<form onclick="store()" type = submit, action="painting1">
+<form onSubmit="store()" action="painting1">
   Proefpersoon nummer:<br>
-  <input type="text" name="id">
+  <input type="text" id="id" name="id">
   <br>
   <input type="submit" value="Submit">
 </form>
 
 <script>
-	function store(){
+	var store = function () {
 		var inputID= document.getElementById("id");
-		localStorage.setItem("id", inputID.value());
+		localStorage.setItem("id", inputID.value);
+		window.location.href=('painting1');
 	}
 </script>
 

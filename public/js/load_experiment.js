@@ -88,8 +88,8 @@ function getMousePos(e) {
 function sendTouch(eventFire, xcoord, ycoord){
     if(eventFire==true){
         var participantID = localStorage.getItem("id");
-        //var participantID = parseInt("participantID");
-        console.log(participantID)
+        participantID = Number(participantID);
+        //console.log(participantID)
 
         var touch = {
             test: 1, //test = 1 means this is test data, 0 = real data
