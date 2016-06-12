@@ -5,6 +5,7 @@ var router = express.Router();
 router.post('/', function(req, res, next) {
     // read the post and set variables for database save:
     var r = new Runs({
+        test: req.body.test,
         participant: req.body.participant,
         painting: req.body.painting,
         touch: req.body.touch,

@@ -5,16 +5,23 @@
     <link href="css/style.css" rel="stylesheet">
     <script src="js/jquery-3.0.0.min.js"></script>
     <script src="js/load_experiment.js"></script>
+   
 </head>
 <body>
 
-<form action="painting1">
+<form onclick="store()" type = submit, action="painting1">
   Proefpersoon nummer:<br>
   <input type="text" name="id">
   <br>
   <input type="submit" value="Submit">
 </form>
 
+<script>
+	function store(){
+		var inputID= document.getElementById("id");
+		localStorage.setItem("id", inputID.value());
+	}
+</script>
 
 </body>
 </html>
