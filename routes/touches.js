@@ -9,6 +9,7 @@ router.post('/', function(req, res, next) {
         participant: req.body.participant,
         painting: req.body.painting,
         touch: req.body.touch,
+        time: req.body.time,
         x_coord: req.body.x_coord,
         y_coord: req.body.y_coord
     });

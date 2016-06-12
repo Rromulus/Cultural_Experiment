@@ -6,6 +6,7 @@ var runSchema = new Schema({
 	participant: Number,
 	painting: Number,
 	touch: Number,
+	time: String,
 	x_coord: Number,
 	y_coord: Number
 });

@@ -1,6 +1,4 @@
-setTimeout(function(){
-    window.location.href='painting2'
-}, 40000000000);//value set on 20 seconds = 20000 milliseconds
+
 
 // var background = "background-image: url('" + url + counter
 //TODO: replace image e.g. $('canvas').attr('style', background)
@@ -90,12 +88,16 @@ function sendTouch(eventFire, xcoord, ycoord){
         var participantID = localStorage.getItem("id");
         participantID = Number(participantID);
         //console.log(participantID)
+        var timeStamp = performance.now(); 
+        timeStamp = timeStamp/1000 //change millisecond into second
+        timeStamp = timeStamp.toFixed(3); //round till 3 numbers behind the comma
 
         var touch = {
             test: 1, //test = 1 means this is test data, 0 = real data
             participant: participantID,
             painting: 1,
             touch: 1,
+            time: timeStamp,
             x_coord: xcoord,
             y_coord: ycoord
         };
