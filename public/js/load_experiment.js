@@ -9,6 +9,9 @@ var canvas,ctx;
 // Variables to keep track of the mouse position and left-button status
 var mouseX,mouseY,mouseDown=0;
 
+//number touches
+var numberTouches = 1;
+
 // Draws a dot at a specific position on the supplied canvas name
 // Parameters are: A canvas context, the x position, the y position, the size of the dot
 function drawDot(ctx,x,y,size) {
@@ -128,14 +131,13 @@ function sendTouch(eventFire, xcoord, ycoord){
 
         //percentage calculation based on size painting: 
         xcoord = (xcoord * 100) / width; 
-        ycoord = (ycoord * 100) / height;
-
+        ycoord = (ycoord * 100) / height; 
 
         var touch = {
             test: 1, //test = 1 means this is test data, 0 = real data
             participant: participantID,
             painting: paintingNumber,
-            touch: 1,
+            touch: numberTouches,
             time: timeStamp,
             x_coord: xcoord,
             y_coord: ycoord
@@ -152,11 +154,12 @@ function sendTouch(eventFire, xcoord, ycoord){
                 }
         });
     eventFire = false;
+    numberTouches = numberTouches + 1;
     }
 }
 
 // Set-up the canvas and add our event handlers after the page has loaded
-function init() {
+function init(numberTouches) {
     // Get the specific canvas element from the HTML document
     canvas = document.getElementById('mycanvas');
 
@@ -173,6 +176,5 @@ function init() {
     }
 
     //play sound at the beginning
-    new Audio('sound/beep-07.mp3').play()
-        
+    new Audio('sound/beep-07.mp3').play()   
 }
