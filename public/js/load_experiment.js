@@ -73,7 +73,6 @@ function getMousePos(e) {
  }
 
  function touchHandler(event, xcoord, ycoord) {
-    //TODO: make sure this function is triggered
     console.log("trigger");
     // Get a reference to our coordinates div
     var coords = document.getElementById("coords");
@@ -90,6 +89,7 @@ function sendTouch(eventFire, xcoord, ycoord){
     if(eventFire==true){
         //console.log('hier')
         var touch = {
+            test: 1, //test = 1 means this is test data, 0 = real data
             participant: 3,
             painting: 1,
             touch: 1,

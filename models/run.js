@@ -2,6 +2,7 @@ var mongoose = require('mongoose');
 var Schema = mongoose.Schema;
 
 var runSchema = new Schema({
+	test: Number,
 	participant: Number,
 	painting: Number,
 	touch: Number,

@@ -3,7 +3,7 @@ var Runs = require('../models/run')
 var router = express.Router();
 
 router.post('/', function(req, res, next) {
-    // read the post and set variables for databse save:
+    // read the post and set variables for database save:
     var r = new Runs({
         participant: req.body.participant,
         painting: req.body.painting,
