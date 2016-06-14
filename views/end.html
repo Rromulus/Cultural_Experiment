@@ -3,6 +3,24 @@
 <head>
  <title>Experiment</title>
     <link href="css/style.css" rel="stylesheet">
+     <script src="js/jquery-3.0.0.min.js"></script>
+    <script type="text/javascript">
+
+    var id = localStorage.getItem("id");
+    id = Number(id);
+
+    console.log("stop tracking for id:", id);
+
+    // Init eyetracker
+    $.ajax({type: 'POST',
+            data: JSON.stringify({id:id}),
+            contentType: 'application/json',
+            url: '/stoptrack',
+            succes: function(touch) {
+                console.log('succesesfully posted stop script');
+            }
+    });
+    </script>
 </head>
 <body>
 
