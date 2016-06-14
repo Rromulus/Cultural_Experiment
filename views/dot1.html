@@ -3,20 +3,33 @@
     <title>Experiment</title>
     <link href="css/style.css" rel="stylesheet">
     <script src="js/jquery-3.0.0.min.js"></script>
-    <script data-main="scripts/main" src="js/r.js"></script>
-    <script src="js/start_eyetracker.js"</script>
-    
     <script type="text/javascript">
-    setTimeout(function(){
-        window.location.href='painting1'
-    }, 3000);//value set on 30 seconds = 30000 milliseconds
+
+        var id = localStorage.getItem("id");
+        id = Number(id);
+
+        console.log("start tracking for id:", id);
+
+        // Init eyetracker
+        $.ajax({type: 'POST',
+                data: JSON.stringify({id:id}),
+                contentType: 'application/json',
+                url: '/track',
+                succes: function(touch) {
+                    console.log('succesesfully posted start script');
+                }
+        });
+
+        setTimeout(function(){
+            window.location.href='painting1'
+        }, 3000000);//value set on 30 seconds = 30000 milliseconds
 
     </script>
 </head>
 
 <body>
 	<div id="dot">
-     <img src="img/dot.png" width="50px" height="50px">   
+     <img src="img/dot.png" width="50px" height="50px">
     </div>
 </body>
 </html>
