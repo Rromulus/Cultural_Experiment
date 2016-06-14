@@ -6,16 +6,12 @@
      <script src="js/jquery-3.0.0.min.js"></script>
     <script type="text/javascript">
 
-    var id = localStorage.getItem("id");
-    id = Number(id);
-
-    console.log("stop tracking for id:", id);
+    console.log("stop tracking");
 
     // Init eyetracker
     $.ajax({type: 'POST',
-            data: JSON.stringify({id:id}),
             contentType: 'application/json',
-            url: '/stoptrack',
+            url: '/track/stop',
             succes: function(touch) {
                 console.log('succesesfully posted stop script');
             }
