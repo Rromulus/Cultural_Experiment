@@ -4,19 +4,7 @@
  <title>Experiment</title>
     <link href="css/style.css" rel="stylesheet">
      <script src="js/jquery-3.0.0.min.js"></script>
-    <script type="text/javascript">
 
-    console.log("stop tracking");
-
-    // Init eyetracker
-    $.ajax({type: 'POST',
-            contentType: 'application/json',
-            url: '/track/stop',
-            succes: function(touch) {
-                console.log('succesesfully posted stop script');
-            }
-    });
-    </script>
 </head>
 <body>
 

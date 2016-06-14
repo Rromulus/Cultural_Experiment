@@ -42,7 +42,7 @@ tracker.start_recording()
 tracker.log_message("Recording of Test Person " + testperson + " starts")
 tracker.log_message('ID'+timeStamp)
 
-time.sleep(183)
+time.sleep(310)
 
 # stop recording
 ##raw_input("Press Enter when experiment is finished...")

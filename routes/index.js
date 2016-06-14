@@ -58,6 +58,10 @@ router.get('/dot6', function(req, res, next) {
   res.render('dot6', { title: 'ejs' });
 });
 
+router.get('/dot7', function(req, res, next) {
+  res.render('dot7', { title: 'ejs' });
+});
+
 
 router.get('/end', function(req, res, next) {
   res.render('end', { title: 'ejs' });
