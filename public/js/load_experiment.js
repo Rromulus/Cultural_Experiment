@@ -102,45 +102,35 @@ function sendTouch(eventFire, xcoord, ycoord){
         //console.log(page);
         if (page == "/painting1") {
             var paintingNumber = 1;
-            var width = 1003;
-            var height = 731;
+            var width = 998;
+            var height = 773;
         }
         else if (page == "/painting2"){
             var paintingNumber = 2;
-            var width = 1050;
-            var height = 814;
+            var width = 1165;
+            var height = 798;
         }
         else if (page == "/painting3"){
             var paintingNumber = 3;
-            var width = 1050;
-            var height = 814;
+            var width = 1231;
+            var height = 816;
         }
         else if (page == "/painting4"){
             var paintingNumber = 4;
-            var width = 1050;
-            var height = 814;
+            var width = 1221;
+            var height = 806;
         }
         else if (page == "/painting5"){
             var paintingNumber = 5;
-            var width = 1050;
-            var height = 814;
-        }
-        else if (page == "/painting6"){
-            var paintingNumber = 6;
-            var width = 1050;
-            var height = 814;
-        }
-        else if (page == "/painting7"){
-            var paintingNumber = 7;
-            var width = 1050;
-            var height = 814;
+            var width = 1152;
+            var height = 804;
         }
         else {
-            var paintingNumber = 8;
-            var width = 1050;
-            var height = 814;
+            var paintingNumber = 6;
+            var width = 872;
+            var height = 776;
         }
-
+        
         //percentage calculation based on size painting: 
         xcoord = (xcoord * 100) / width; 
         xcoord = xcoord.toFixed(3); //till 3 numbers behind the comma
