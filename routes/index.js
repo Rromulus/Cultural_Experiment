@@ -34,14 +34,6 @@ router.get('/painting6', function(req, res, next) {
   res.render('painting6', { title: 'ejs' });
 });
 
-router.get('/painting7', function(req, res, next) {
-  res.render('painting7', { title: 'ejs' });
-});
-
-router.get('/painting8', function(req, res, next) {
-  res.render('painting8', { title: 'ejs' });
-});
-
 router.get('/dot1', function(req, res, next) {
   res.render('dot1', { title: 'ejs' });
 });
@@ -65,11 +57,6 @@ router.get('/dot5', function(req, res, next) {
 router.get('/dot6', function(req, res, next) {
   res.render('dot6', { title: 'ejs' });
 });
-
-router.get('/dot7', function(req, res, next) {
-  res.render('dot7', { title: 'ejs' });
-});
-
 
 
 router.get('/end', function(req, res, next) {
