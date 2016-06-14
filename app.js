@@ -11,6 +11,7 @@ var routes = require('./routes/index');
 var users = require('./routes/users');
 var touches = require('./routes/touches'); // import touch api
 var app = express();
+var PythonShell = require('python-shell');
 
 
 app.listen(3000, function(){
@@ -89,3 +90,4 @@ db = mongoose.connect('mongodb://127.0.0.1:27017/mydb');
 fs.readdirSync(__dirname + '/models').forEach(function(filename){
 	if (~filename.indexOf('.js')) require(__dirname + '/models/' + filename)
 })
+
